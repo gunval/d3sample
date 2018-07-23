@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Test</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <script>
+        // ここにコードを書いていきます。
+        // step1 d3.select("body").append("p").text("Hello!");
+        var dataset = [ 1, 2, 3, 4, 5 ];
+        d3.select("body").selectAll("p") //bodyを選択し、pのから参照を返す.
+            .data(dataset) // datasetをバインド.
+            .enter() // バインドされた新しい要素を作成するための仮場所を作成.
+            .append("p")
+            .text((d) => {return d})
+            .style("color", "red");
+    </script>
+  </body>
+</html>
