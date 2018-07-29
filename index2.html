@@ -9,7 +9,24 @@
     <svg width="500" height="50">
     </svg>
     <script>
-      // ここにコードを書いていきます。
+      var svg = d3.select("body").append("svg").attr("width", 500).attr("height", 100);
+      var dataset = [1, 2, 3, 4, 5];
+      var circles = svg.selectAll("circle")
+        .data(dataset)
+        .enter()
+        .append("circle");
+      circles.attr("cx", (d, i) => {
+        return (i * 50) + 25;
+      })
+      .attr("cy", 50)
+      .attr("r", (d) => {
+        return 5 * d;
+      })
+      .attr("fill", "yellow")
+      .attr("stroke", "orange")
+      .attr("stroke-width", (d) => {
+        return d;
+      });
     </script>
   </body>
 </html>
